@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
-cart_icon=By.CSS_SELECTOR, "span#nav-cart-count"
-empty_cart=By.CSS_SELECTOR, "h1.sc-empty-cart-header"
+cart_icon=(By.CSS_SELECTOR, "span#nav-cart-count")
+empty_cart=(By.CSS_SELECTOR, "h1.sc-empty-cart-header")
 
 @given ('Open Amazon home page')
 def open_amazon(context):
