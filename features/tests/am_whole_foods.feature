@@ -4,5 +4,4 @@ Feature: Amazon Whole Foods page Functionality
 
   Scenario:  Amazon Whole Foods page
     Given Open Amazon Whole Food page
-    When Click on items on sale
-    Then Verify that every item has regular price
+    Then Verify that every item has product name and regular price
