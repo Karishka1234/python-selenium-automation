@@ -18,6 +18,6 @@ def top_link_click(context):
         top_link = context.driver.find_elements(By.CSS_SELECTOR, "div#zg_tabs ul li")
         top_link[i].click()
         top_link = context.driver.find_elements(By.CSS_SELECTOR, "div#zg_tabs ul li")
-        for j in text:
-            header_text = context.driver.find_element(By.CSS_SELECTOR, "div#zg_banner_text_wrapper").text
-            assert text[i] in header_text, 'Expected {}, but got {}'.format(text[i], header_text)
+        #for j in text:
+        header_text = context.driver.find_element(By.CSS_SELECTOR, "div#zg_banner_text_wrapper").text
+        assert text[i] in header_text, 'Expected {}, but got {}'.format(text[i], header_text)
