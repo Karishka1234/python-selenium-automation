@@ -1,11 +1,14 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import ActionChains
 
 
 deals = (By.XPATH, "//a[contains(@aria-label, 'deals under $25')]")
 today_deals = (By.CSS_SELECTOR, "div.gbh1-bold")
 product = (By.CSS_SELECTOR, "a#dealTitle span.a-declarative")
 add_to_cart_button = (By.CSS_SELECTOR, "input#add-to-cart-button")
+deals = (By.XPATH, "//a[contains(text(), 'Deals')]")
 
 
 @when('Store original windows')
@@ -14,9 +17,14 @@ def store_window(context):
     context.old_windows = context.driver.window_handles
 
 
-@when('Click to open Deals under 25')
-def deals_under_25(context):
-    context.driver.find_element(*deals).click()
+@when('Open a link in new window')
+def open_new_window(context):
+    actions = ActionChains(context.driver)
+    find = context.driver.find_element(*deals)
+    actions.key_down(Keys.CONTROL).click(find).key_up(Keys.CONTROL).perform()
+# @when('Click to open Deals under 25')
+#def deals_under_25(context):
+    #context.driver.find_element(*deals).click()
 
 
 @when('Switch to the newly opened window')
@@ -28,10 +36,10 @@ def switch_window(context):
         context.driver.switch_to_window(new_window[0])
 
 
-@when('{expected_header} is shown')
-def deals_are_shown(context, expected_header):
-    actual_header = context.driver.find_element(*today_deals).text
-    assert actual_header == expected_header, f"Expected {expected_header}, but got {actual_header}"
+#@when('{expected_header} is shown')
+#def deals_are_shown(context, expected_header):
+ #   actual_header = context.driver.find_element(*today_deals).text
+  #  assert actual_header == expected_header, f"Expected {expected_header}, but got {actual_header}"
 
 
 @then('Add any product into a cart')
