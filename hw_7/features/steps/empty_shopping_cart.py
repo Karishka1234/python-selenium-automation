@@ -17,6 +17,7 @@ def click_on_cart(context):
     # context.driver.find_element(*cart_icon).click()
     # sleep(1)
     context.app.main_page.cart_click()
+    sleep(3)
 
 
 @then('Verify that page contains {search_word}')

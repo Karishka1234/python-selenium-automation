@@ -1,5 +1,6 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 hmenu_icon = (By.CSS_SELECTOR, "i.hm-icon")
 am_music = (By.XPATH, "//a[@data-menu-id='3']//div[contains(text(),'Amazon Music')]")
@@ -24,6 +25,7 @@ def music_menu(context):
     # music = context.driver.find_element(*am_music)
     # music.click()
     context.app.main_page.am_music_click()
+    context.driver.wait.until(EC.presence_of_element_located(actual_items))
 
 
 @then('{amount} menu items are present')

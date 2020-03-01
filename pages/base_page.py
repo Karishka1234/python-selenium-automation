@@ -21,8 +21,8 @@ class Page:
 
     def item_amount(self, amount, *locator):
         actual = self.driver.find_elements(*locator)
-        print(actual)
-        print(amount)
+        print(len(actual))
+        print(int(amount))
         assert len(actual) == int(amount)
 
 

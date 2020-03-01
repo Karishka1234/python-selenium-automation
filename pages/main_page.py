@@ -7,7 +7,7 @@ class MainPage(Page):
     cart_icon = (By.CSS_SELECTOR, "span#nav-cart-count")
     hmenu_icon = (By.CSS_SELECTOR, "i.hm-icon")
     am_music = (By.XPATH, "//a[@data-menu-id='3']//div[contains(text(),'Amazon Music')]")
-    actual_items = (By.CSS_SELECTOR, "ul.hmenu-visible li a:not(.hmenu-back-button")
+    actual_items = (By.CSS_SELECTOR, "ul.hmenu-visible li a:not(.hmenu-back-button)")
 
     def order_link(self):
         self.click(*self.orders_link_icon)
